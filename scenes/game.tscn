@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://ca7hrp00l4x4o"]
+
+[ext_resource type="PackedScene" uid="uid://b8stlyu56dn5r" path="res://scenes/player.tscn" id="1_86gtl"]
+
+[sub_resource type="Environment" id="Environment_j8fnu"]
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_27ptd"]
+
+[sub_resource type="Compositor" id="Compositor_gitng"]
+
+[node name="Game" type="Node"]
+
+[node name="Player" parent="." instance=ExtResource("1_86gtl")]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-0.707107, 0.5, -0.5, 0, 0.707107, 0.707107, 0.707107, 0.5, -0.5, -32.0019, 32, -31.8715)
+projection = 1
+current = true
+size = 90.0
+
+[node name="Lighting" type="Node3D" parent="."]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Lighting"]
+environment = SubResource("Environment_j8fnu")
+camera_attributes = SubResource("CameraAttributesPractical_27ptd")
+compositor = SubResource("Compositor_gitng")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Lighting"]
+transform = Transform3D(0.707107, -0.5, 0.5, 0, 0.707107, 0.707107, -0.707107, -0.5, 0.5, 0, 0, 0)
